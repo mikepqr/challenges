@@ -20,7 +20,6 @@ def is_palindrome(mystring):
     
     #set your string length and default to True
     stringLength = len(cleanstring)
-    isapalindrome = True
     
     #move in from left and right one by one and set to false if you find a nonmatch
     fromLeft = 0
@@ -29,10 +28,9 @@ def is_palindrome(mystring):
         if cleanstring[fromLeft] != cleanstring[fromRight]:
             print mystring + "isn't  a palindrome"
             print "Here's why: " + cleanstring[fromLeft] + "!= " + cleanstring[fromRight]
-            isapalindrome = False
-            break
+            return False
         else:
             fromLeft += 1
             fromRight -= 1           
     
-    return isapalindrome
+    return True
