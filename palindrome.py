@@ -1,4 +1,4 @@
-def isPalindrome(s):
+def is_palindrome(s):
     '''
     Returns True if s is a palindrome, else returns False. Ignores punctuation
     and whitespace.
@@ -8,7 +8,7 @@ def isPalindrome(s):
     return True
 
 
-def test_isPalindrome(function):
+def test_is_palindrome(function):
     tests = [("a", True),
              ("a.", True),
              ("Aa", True),
@@ -28,12 +28,12 @@ def test_isPalindrome(function):
             raise
 
 
-def mikesSolution(s):
+def mikes_solution(s):
     s_ = ''.join([l.lower() for l in s if l.isalnum()])
     return (s_ == s_[::-1])
 
 
-def efficientSolution(s):
+def efficient_solution(s):
     i, j = 0, len(s) - 1
     s = s.lower()
 
