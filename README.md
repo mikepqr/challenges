@@ -3,7 +3,8 @@
 Write a function that returns the length of the longest substring with
 no repeating characters in a string.
 
-E.g. the longest non-repeating substring in `'abcabcda'` is 4 (`'abcd'`).
+E.g. the longest non-repeating substring in `'abcabcda'` is `'abcd'`,
+which has length 4.
 
 **Don't look at `longestsubstring.py`, which contains two solutions!!!**
 
