@@ -34,3 +34,9 @@ is negative).
 
 Look at the test harness for longest-substring for an example of how to
 implement a quick test harness.
+
+## Bonus points
+
+Subclass the data type you choose to represent the collection of coins
+to create a `Coins` class that supports operations like `sum` to add up
+the value of the coins in the collection.
