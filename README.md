@@ -18,7 +18,7 @@ doing:
 ```
 >>> import test_longestsubstring
 >>> import myfile
->>> test_longestsubstring(myfile.myfunc)
+>>> test_longestsubstring.test_longestsubstring(myfile.myfunc)
 ```
 
 If it's correct, you should get:
