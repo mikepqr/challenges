@@ -1,3 +1,6 @@
+# NOT DONE!  Have to fix: start unique char each time
+
+
 def findLengthLongestSubstring(myString):
     uniqueString = ''.join(set(myString))
     maxSubstring = ""
