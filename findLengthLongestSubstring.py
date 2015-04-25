@@ -1,11 +1,16 @@
-def findLengthLongestSubstring(mystring):
-    currSubstring = ""
+def findLengthLongestSubstring(myString):
+    uniqueString = ''.join(set(myString))
     maxSubstring = ""
-    for letter in myString:
-        if letter in currSubstring:
-            currSubstring = ""
-        else:
-            currSubstring += letter
-            if len(currSubstring) > len(maxSubstring):
-                maxSubstring = currSubstring
+    for char in uniqueString:
+        currSubstring = ""
+        newCharString = myString[myString.find(char):]
+        for letter in newCharString:
+            if letter in currSubstring:
+                currSubstring = letter
+            else:
+                currSubstring += letter
+                print currSubstring
+                if len(currSubstring) > len(maxSubstring):
+                    maxSubstring = currSubstring
+    print(maxSubstring)
     return(len(maxSubstring))
