@@ -1,6 +1,3 @@
-from collections import OrderedDict
-
-
 def length_of_longest_substring(s):
     '''
     Find length of longest substring of s with no repeating characters.
