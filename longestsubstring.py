@@ -19,9 +19,6 @@ def length_of_longest_substring(s):
     '''
 
     longest = 0
-
-    # Use OrderedDict to preserve order, in case we ever want to return the
-    # substing
     i = 0
     j = 1
 
