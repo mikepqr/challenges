@@ -5,43 +5,34 @@ def length_of_longest_substring(s):
     '''
     Find length of longest substring of s with no repeating characters.
 
-    Uses pointers i and j to search string, and an (ordered) dict to keep track
-    of which letters have been seen.
-
-    Initially i = 0, j = 1.
+    Uses pointers i and j to search string. Initially i = 0, j = 1.
 
     1. j is then incremented until the character s[j] occurs in the substring
     s[i:j] -- i.e. we find the end of the non-repeating substring -- or until j
-    == len(s). E.g. if s = 'abcabcda' then j is increased until i = 0, j = 3,
-    and letters is a dict of 'abc'.
+    == len(s). E.g. if s = "anviaj" then j is increased until i = 0, j = 4,
+    s[i:j] = "anvi", s[j] = "a".
 
-    2. s[i] is then removed from the dict letters, and i += 1 incremented. E.g.
-    i = 1, j = 3, and letters contains 'bc'.
-
-    j is then incremented again until a repeat or the end of the string (i.e.
-    repeat 1), and then i is incremented again until i is within the length of
-    the current candidate longest substring of the end of s, in which case you
-    can stop looking.
+    2. i is then incremented to be at the position after the character in
+    s[i:j] responsible for the collision with s[j], e.g. if s = "anviaj", then
+    after step 1, and i = 0, j = 4, then the character s[j] = "a" is
+    responsible for the collision, and "a" first occurs at position 0.
     '''
 
     longest = 0
 
     # Use OrderedDict to preserve order, in case we ever want to return the
     # substing
-    letters = OrderedDict()
     i = 0
-    j = i
+    j = 1
 
     while i < len(s) - longest:
-        while j < len(s) and s[j] not in letters:
-            letters[s[j]] = True
+        while j < len(s) and s[j] not in s[i:j]:
             j += 1
 
-        if len(letters) > longest:
-            longest = len(letters)
+        longest = max(longest, len(s[i:j]))
 
-        del letters[s[i]]
-        i += 1
+        if j < len(s):
+            i = s[i:].find(s[j]) + i + 1
 
     return longest
 
