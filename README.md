@@ -34,18 +34,31 @@ anviaj ... OK!
 
 ## Speed/memory bonus
 
-The final string in the test harness, which is truncated for output in the
-harness, is over 30,000 characters long. I wrote two functions with very
-different performance characteristics!
+The final strings in the test harness, which are truncated for output in
+the harness, are over 30,000 characters long. One is ordered and drawn
+from a large alphabet, and is a worst-case input for most approaches to
+this problem. The other is a random sequence of letters.
 
-```
-In [4]: s = open('longstring.txt').read()
+I wrote two functions, `length_of_longest_substring_slow` and
+`length_of_longest_substring`, with very different performance
+characteristics!
 
-In [5]: %timeit longestsubstring.length_of_longest_substring(s)
-10 loops, best of 3: 79.8 ms per loop
+``` 
+In [1]: s_random = open('random_longstring.txt').read()
 
-In [6]: %timeit longestsubstring.length_of_longest_substring_slow(s)
-1 loops, best of 3: 4.25 s per loop
+In [2]: s_ordered = open('ordered_longstring.txt').read()
+
+In [3]: %timeit longestsubstring.length_of_longest_substring_slow(s_random)
+10 loops, best of 3: 90.2 ms per loop
+
+In [4]: %timeit longestsubstring.length_of_longest_substring_slow(s_ordered)
+1 loops, best of 3: 801 ms per loop
+
+In [5]: %timeit longestsubstring.length_of_longest_substring(s_random)
+100 loops, best of 3: 16.7 ms per loop
+
+In [6]: %timeit longestsubstring.length_of_longest_substring(s_ordered)
+10 loops, best of 3: 66.4 ms per loop
 ```
 
 How does your solution do?! If you struggle to get millisecond speed, take a
