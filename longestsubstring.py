@@ -52,17 +52,12 @@ def length_of_longest_substring_slow(s):
     i = 0
 
     while i < len(s) - longest:
-
-        letters = OrderedDict()
         j = i
 
-        while j < len(s) and s[j] not in letters:
-            letters[s[j]] = True
+        while j < len(s) and s[j] not in s[i:j]:
             j += 1
 
-        if len(letters) > longest:
-            longest = len(letters)
-
+        longest = max(longest, len(s[i:j]))
         i += 1
 
     return longest
