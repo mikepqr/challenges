@@ -23,11 +23,15 @@ def length_of_longest_substring(s):
         while j < len(s) and s[j] not in s[i:j]:
             j += 1
 
-        longest = max(longest, len(s[i:j]))
+        candidate_length = len(s[i:j])
+        if candidate_length > longest:
+            longest = candidate_length
+            i_, j_ = i, j
 
         if j < len(s):
             i = s[i:].find(s[j]) + i + 1
 
+    print s[i_, j_]
     return longest
 
 
