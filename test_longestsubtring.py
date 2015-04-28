@@ -4,8 +4,8 @@ def test_longest_substring(f):
              ('abcabcda', 4),
              ('dvdx', 3),
              ('anviaj', 5),
-             (open('longstring.txt').read(), 95),
-             (open('vlongstring.txt').read(), 31)]
+             (open('ordered_longstring.txt').read(), 95),
+             (open('random_longstring.txt').read(), 33)]
 
     for s, desired_result in tests:
         if len(s) > 60:
