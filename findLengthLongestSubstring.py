@@ -1,19 +1,24 @@
-# NOT DONE!  Have to fix: start unique char each time
-
-
 def findLengthLongestSubstring(myString):
-    uniqueString = ''.join(set(myString))
     maxSubstring = ""
-    for char in uniqueString:
-        currSubstring = ""
-        newCharString = myString[myString.find(char):]
-        for letter in newCharString:
-            if letter in currSubstring:
-                currSubstring = letter
-            else:
-                currSubstring += letter
-                print currSubstring
-                if len(currSubstring) > len(maxSubstring):
-                    maxSubstring = currSubstring
+    currSubstring = ""
+    rightIndex = 0
+    leftIndex = 0
+    #crawl out to the right until you find a repeat
+    while rightIndex < len(myString):
+        if myString[rightIndex] not in currSubstring:
+            currSubstring += myString[rightIndex]
+            rightIndex += 1
+            if len(currSubstring) > len(maxSubstring):
+                maxSubstring = currSubstring
+        #when you find a repeat crawl in from left until you find the char that caused the repeat
+        else:
+            repeat = myString[rightIndex]
+            repeatFound = 0
+            while not repeatFound: 
+                if myString[leftIndex] == repeat:
+                    repeatFound = 1
+                    currSubstring = myString[leftIndex + 1 : rightIndex]
+                leftIndex += 1             
+
     print(maxSubstring)
     return(len(maxSubstring))
