@@ -1,5 +1,5 @@
 from collections import Counter
-COINS = [50, 25, 10, 5, 1]
+COINS = (50, 25, 10, 5, 1)
 
 
 def calc_change(tendered, price):
