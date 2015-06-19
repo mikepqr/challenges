@@ -20,4 +20,5 @@ credit card number. These records should not be included in your output.
 ## Bonus
 
 No Python! Solve this problem using only `curl` and
-[jq](https://stedolan.github.io/jq/).
+[jq](https://stedolan.github.io/jq/). If you decide to try this, don't
+look at `solution.sh`!
