@@ -6,18 +6,19 @@ import random
 PLAYERS = ['❌', '😎']
 TIE = 1
 
+'''
+Blackjack TODO:
+ - docstrings
+ - ad hoc test with > 2 players
+ - force player to take at least one card
+ - handle situation when hand is five cards
+ - handle fact that ace can be worth 1 or 11
+ - cards should be a deck with state
+ - unit testing testing
+'''
+
 
 class Blackjack(object):
-    '''
-    TODO:
-     - handle fact that ace can be worth 1 or 11
-     - force player to take one card
-     - cards should be a deck with state
-     - handle situation when hand is five cards
-     - test with > 2 players
-     - testing
-     - docstrings
-    '''
     CARD_NAME = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
                  'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
     CARD_VALUE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
