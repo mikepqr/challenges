@@ -4,13 +4,13 @@ from __future__ import print_function
 import itertools
 import random
 PLAYERS = ['❌', '😎']
-STALEMATE = 1
+TIE = 1
 
 
 class Blackjack(object):
     '''
     TODO:
-     - handle ties
+     - handle ties (equal scores, all bust)
      - cards should be a deck with state
      - handle situation when hand is five cards
      - test with > 2 players
@@ -31,7 +31,7 @@ class Blackjack(object):
             player = self.current_player
         return sum([v for n, v in self.hands[player]])
 
-    def _print_player_hand_as_string(self, player=None):
+    def _player_hand_as_string(self, player=None):
         if not player:
             player = self.current_player
         return ' '.join([str(v) for n, v in self.hands[player]])
@@ -43,24 +43,22 @@ class Blackjack(object):
                 self.winner = p
                 best_hand = self._player_total(player=p)
 
-    def turn(self):
-        while self._get_decision():
-            self.hands[self.current_player].append(self._get_card())
-            print(self._print_player_hand_as_string())
-            print('= {}'.format(self._player_total()))
-            if self._player_total() >= Blackjack.LIMIT:
-                print('{} busts.'.format(self.current_player))
-                try:
-                    self.current_player = self.player_order.next()
-                except:
-                    self._determine_winner()
-                    return True
+    def _player_busts(self):
+        if self._player_total() >= Blackjack.LIMIT:
+            print('{} busts.'.format(self.current_player))
+            return True
+        else:
+            return False
 
-        print('{} sticks on {}.'.format(self.current_player,
-                                        self._player_total()))
+    def turn(self):
+        while not self._player_busts() and self._get_decision():
+            self.hands[self.current_player].append(self._get_card())
+            print(self._player_hand_as_string())
+            print('= {}'.format(self._player_total()))
 
         try:
             self.current_player = self.player_order.next()
+            return False
         except:
             self._determine_winner()
             return True
@@ -72,7 +70,12 @@ class Blackjack(object):
 
     def _get_decision(self):
         print('Your move, {}'.format(self.current_player))
-        return True if raw_input('Another card? ') else False
+        if raw_input('Another card?'):
+            return True
+        else:
+            print('{} sticks on {}.'.format(self.current_player,
+                                            self._player_total()))
+            return False
 
     def __repr__(self):
         s = ''
@@ -81,6 +84,8 @@ class Blackjack(object):
             s += ' '
             s += self._player_hand_as_string(p)
             s += '\n'
+
+        return s
 
 
 class TicTacToe(object):
@@ -123,7 +128,7 @@ class TicTacToe(object):
 
         # Check for stalemate
         if all(v in PLAYERS for v in self.board.values()):
-            self.winner = STALEMATE
+            self.winner = TIE
             return True
 
         return False
@@ -183,10 +188,10 @@ def main(game=TicTacToe()):
     while not game.turn():
         pass
 
-    if game.winner != STALEMATE:
+    if game.winner != TIE:
         print('Winner: {}'.format(game.winner))
     else:
-        print('Game ended in stalemate')
+        print('Game ended in tie')
 
     print(game)
 
