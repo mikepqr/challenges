@@ -1,4 +1,4 @@
-# Trivial game implementation
+# Game driver and game implementation
 
 To play:
 ```python
@@ -7,5 +7,5 @@ game.playgame(game=game.TicTacToe())
 ```
 or
 ```python
-tictactoe.main(game=tictactoe.Blackjack())
+game.main(game=game.Blackjack())
 ```
