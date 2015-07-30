@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+import itertools
 PLAYERS = ['❌', '😎']
 STALEMATE = 1
 
@@ -15,7 +16,8 @@ class TicTacToe(object):
 
     def __init__(self):
         self.board = self._create_board()
-        self.next_player = PLAYERS[0]
+        self.player_order = itertools.cycle(PLAYERS)
+        self.current_player = self.player_order.next()
         self.winner = None
 
     def _create_board(self):
@@ -54,9 +56,8 @@ class TicTacToe(object):
         Gets and plays turn. Returns True if game is finished, False otherwise.
         '''
         move = self._get_move()
-        self.board[move] = self.next_player
-        self.next_player = (PLAYERS[0] if self.next_player == PLAYERS[1]
-                            else PLAYERS[1])
+        self.board[move] = self.current_player
+        self.current_player = self.player_order.next()
         return self._is_finished()
 
     def _check_move(self, move):
@@ -74,7 +75,7 @@ class TicTacToe(object):
             return False
 
     def _get_move(self):
-        print('Your move, {}'.format(self.next_player))
+        print('Your move, {}'.format(self.current_player))
         print(self)
         move = None
         while not self._check_move(move):
@@ -98,6 +99,8 @@ def main(game=TicTacToe()):
        finished.
      - a winner attribute that contains the string value of the winner.
 
+    Ideally game should implement __repr__ so print(game) returns something
+    sensible.
     '''
 
     while not game.turn():
