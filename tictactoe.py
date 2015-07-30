@@ -11,6 +11,7 @@ class Blackjack(object):
     '''
     TODO:
      - handle ties (equal scores, all bust)
+     - force player to take one card
      - cards should be a deck with state
      - handle situation when hand is five cards
      - test with > 2 players
@@ -70,7 +71,7 @@ class Blackjack(object):
 
     def _get_decision(self):
         print('Your move, {}'.format(self.current_player))
-        if raw_input('Another card?'):
+        if raw_input('Another card? '):
             return True
         else:
             print('{} sticks on {}.'.format(self.current_player,
@@ -173,7 +174,7 @@ class TicTacToe(object):
         return s
 
 
-def main(game=TicTacToe()):
+def playgame(game=TicTacToe()):
     '''
     Plays a game that implements the following API (tic tac toe by default):
 
@@ -197,4 +198,4 @@ def main(game=TicTacToe()):
 
 
 if __name__ == '__main__':
-    main()
+    playgame()
