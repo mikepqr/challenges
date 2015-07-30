@@ -2,8 +2,8 @@
 
 To play:
 ```python
-import tictactoe
-tictactoe.main()
+import game
+game.playgame(game=game.TicTacToe())
 ```
 or
 ```python
