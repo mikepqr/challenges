@@ -10,11 +10,12 @@ TIE = 1
 class Blackjack(object):
     '''
     TODO:
-     - handle ties (equal scores, all bust)
      - force player to take one card
      - cards should be a deck with state
      - handle situation when hand is five cards
      - test with > 2 players
+     - testing
+     - docstrings
     '''
     CARD_NAME = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven',
                  'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King']
@@ -39,6 +40,7 @@ class Blackjack(object):
 
     def _determine_winner(self):
         best_hand = 0
+        self.winner = TIE
         for p in self.hands:
             if best_hand < self._player_total(player=p) <= Blackjack.LIMIT:
                 self.winner = p
