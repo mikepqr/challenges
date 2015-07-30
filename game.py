@@ -10,6 +10,7 @@ TIE = 1
 class Blackjack(object):
     '''
     TODO:
+     - handle fact that ace can be worth 1 or 11
      - force player to take one card
      - cards should be a deck with state
      - handle situation when hand is five cards
