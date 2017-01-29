@@ -10,9 +10,9 @@ Fridays". These are days when the engineering team were doing personal projects
 team to pick up some important data science skills, and to be more
 culturally/professionally integrated with the engineering team.
 
- - [credit card](https://github.com/williamsmj/challenge-credit-card) (data cleaning)
- - [game](https://github.com/williamsmj/challenge-game) (software engineering, OOP)
- - [hale hearty map](https://github.com/williamsmj/challenge-hale-hearty-map) (scraping, data visualization)
- - [longest substring](https://github.com/williamsmj/challenge-longest-substring) (algorithms)
- - [make change](https://github.com/williamsmj/challenge-make-change) (algorithms, data structures)
- - [palindrome](https://github.com/williamsmj/challenge-palindrome) (algorithms)
+ - [credit card](creditcard) (data cleaning)
+ - [game](game) (software engineering, OOP)
+ - [hale hearty map](haleheartymap) (scraping, data visualization)
+ - [longest substring](longestsubstring) (algorithms)
+ - [make change](makechange) (algorithms, data structures)
+ - [palindrome](palindrome) (algorithms)
