@@ -2,12 +2,12 @@
 
 Note: this challenge (and the input data) is stolen shamelessly from a
 [Gist posted by Jorin
-Vogel](https://gist.github.com/jorin-vogel/2e43ffa981a97bc17259). Don't
+Vogel](https://gist.github.com/jorinvo/2e43ffa981a97bc17259). Don't
 click that link until you've tried to solve the problem; it's literally
 a list of solutions!
 
 The file
-[https://gist.githubusercontent.com/jorin-vogel/7f19ce95a9a842956358/raw/e319340c2f6691f9cc8d8cc57ed532b5093e3619/data.json](https://gist.githubusercontent.com/jorin-vogel/7f19ce95a9a842956358/raw/e319340c2f6691f9cc8d8cc57ed532b5093e3619/data.json)
+[data.json](https://gist.githubusercontent.com/jorinvo/7f19ce95a9a842956358/raw/e319340c2f6691f9cc8d8cc57ed532b5093e3619/data.json)
 contains the credit card information of a cache of stolen credit cards
 in JSON objects. 
 
